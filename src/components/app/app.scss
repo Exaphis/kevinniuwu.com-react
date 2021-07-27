@@ -1,0 +1,165 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
+$base-color: #08122B;
+$accent-color: #D9A629;
+$text-color: #DDDDDD;
+
+html {
+  background-color: $base-color;
+  color: $text-color;
+
+  padding: 0 5em;
+  @media screen and (max-width: 512px) {
+    padding: 0 2em;
+  }
+
+  font-size: 10px;
+  @media screen and (max-width: 1024px) {
+    font-size: 8px;
+  }
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.font-mono {
+  font-family: 'Source Code Pro', 'Courier New', Courier, monospace
+}
+
+.text {
+  &__accent {
+    color: $accent-color;
+  }
+
+  &__semibold {
+    font-weight: 600;
+  }
+
+  &__xxxl {
+    font-size: 9rem;
+  }
+
+  &__xxl {
+    font-size: 5rem;
+  }
+
+  &__xl {
+    font-size: 3.5rem;
+  }
+
+  &__l {
+    font-size: 2.5rem;
+  }
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+p, span {
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+a {
+  color: $text-color;
+  &:hover {
+    color: $accent-color;
+  }
+
+  transition: color 0.2s;
+}
+
+hr {
+  margin-top: 10em;
+  margin-bottom: 5em;
+  width: 80%;
+  visibility: hidden;
+}
+
+#portfolio {
+  padding: 5em 2em;
+  margin: 0 auto;
+  max-width: 1024px;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__text {
+      flex-basis: 450px;
+    }
+
+    &__img {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2em;
+
+      &__wrapper {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    display: block;
+    margin: 1em 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      white-space: pre;
+
+      &:not(:last-child):after {
+        // why do we need two spaces??
+        content: " \00b7  ";
+      }
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  // https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  @media screen and (max-width: 512px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  column-gap: 3em;
+
+  .card {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    gap: 1em;
+
+    img {
+      object-fit: contain;
+      max-height: 250px;
+      width: 100%;
+    }
+
+    div {
+      flex-basis: 100%;
+    }
+  }
+}
