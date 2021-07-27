@@ -7,6 +7,8 @@ import PurdueImg from "../../images/purdue.png";
 import CitrixImg from "../../images/citrix.png";
 import GsocImg from "../../images/gsoc.png";
 import NyneImg from "../../images/nyne.png";
+import TsunamiImg from "../../images/tsunami.png";
+import ResumePdf from "../../resources/Resume.pdf";
 
 function navigate(href: string, newTab: boolean) {
   let a = document.createElement("a");
@@ -39,7 +41,9 @@ function App() {
 
       <ul className="text__l text__semibold">
         <li>
-          <a href="https://kevinniuwu.com/resume.pdf">Resume</a>
+          <a href={ResumePdf} target="_blank" rel="noreferrer">
+            Resume
+          </a>
         </li>
         <li>
           <a href="mailto:kevin@kevinniuwu.com">Email</a>
@@ -205,10 +209,23 @@ function App() {
           >
             <img src={NyneImg} alt="Nyne logo" />
             <hr />
+            <h1>Nyne</h1>
             <p>
               Nyne is a cooperative rhythm game designed for the iPad. It was
               developed on a 4-man team, featuring original songs and unique
               gameplay.
+            </p>
+          </Card>
+          <Card
+            onClick={() => navigate("https://github.com/Exaphis/Tsunami", true)}
+          >
+            <img src={TsunamiImg} alt="Tsunami logo" />
+            <hr />
+            <h1>Tsunami</h1>
+            <p>
+              Tsunami is a Windows driver used to read and write memory from
+              kernel. It was used to create a proof-of-concept Overwatch aimbot
+              and wallhack.
             </p>
           </Card>
         </div>
