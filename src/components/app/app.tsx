@@ -1,6 +1,7 @@
 import React from "react";
 import { Section, SectionPreview } from "../section/section";
 import { Card } from "../card/card";
+import { Tag } from "../tag/tag";
 import "./app.scss";
 import KevinImg from "../../images/kevin.jpg";
 import PurdueImg from "../../images/purdue.png";
@@ -178,13 +179,14 @@ function App() {
               src="https://synchronous.codes/static/media/logo.237c7149.png"
               alt="Synchronous logo"
             />
-            <hr />
             <p>
               Synchronous allows you to create temporary collaborative
               workspaces, quickly. Whenever you need to work on something with
               somebody else, pop open Synchronous and collaboratively type,
               draw, or share files.
             </p>
+            <Tag>Python</Tag> <Tag>Django</Tag> <Tag>JavaScript</Tag>
+            <Tag>React</Tag>
           </Card>
           <Card
             onClick={() =>
@@ -195,12 +197,13 @@ function App() {
               src="https://raw.githubusercontent.com/Exaphis/HackQ-Trivia/master/resources/hackq.png"
               alt="HackQ-Trivia logo"
             />
-            <hr />
             <p>
               HackQ-Trivia is a Python HQ Trivia bot. It receives HQ Trivia
               questions through their WebSocket connection and answers the
-              questions automatically.
+              questions automatically using web searches and natural language
+              processing.
             </p>
+            <Tag>Python</Tag>
           </Card>
           <Card
             onClick={() =>
@@ -208,25 +211,26 @@ function App() {
             }
           >
             <img src={NyneImg} alt="Nyne logo" />
-            <hr />
             <h1>Nyne</h1>
             <p>
               Nyne is a cooperative rhythm game designed for the iPad. It was
               developed on a 4-man team, featuring original songs and unique
               gameplay.
             </p>
+            <Tag>Unity</Tag> <Tag>C#</Tag>
+            <Tag>iOS</Tag>
           </Card>
           <Card
             onClick={() => navigate("https://github.com/Exaphis/Tsunami", true)}
           >
             <img src={TsunamiImg} alt="Tsunami logo" />
-            <hr />
             <h1>Tsunami</h1>
             <p>
-              Tsunami is a Windows driver used to read and write memory from
-              kernel. It was used to create a proof-of-concept Overwatch aimbot
-              and wallhack.
+              Tsunami is a covert Windows driver used to read from and write to
+              the memory of any process. It was used to create a
+              proof-of-concept Overwatch aimbot and wallhack.
             </p>
+            <Tag>C</Tag> <Tag>C++</Tag> <Tag>Windows Driver Kit</Tag>
           </Card>
         </div>
       </Section>

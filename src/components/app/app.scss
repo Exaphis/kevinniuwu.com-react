@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
 $base-color: #08122B;
 $accent-color: #D9A629;
-$text-color: #DDDDDD;
+$text-color: #CCCCCC;
 
 html {
   background-color: $base-color;
@@ -149,17 +149,25 @@ hr {
   .card {
     align-items: center;
     align-content: center;
-    justify-content: center;
     gap: 1em;
 
     img {
       object-fit: contain;
-      max-height: 250px;
+      max-height: 150px;
       width: 100%;
     }
 
     div {
       flex-basis: 100%;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    h1 {
+      width: 100%;
+      text-align: center;
     }
   }
 }
