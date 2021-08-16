@@ -226,7 +226,7 @@ function App() {
             <img src={TsunamiImg} alt="Tsunami logo" />
             <h1>Tsunami</h1>
             <p>
-              Tsunami is a covert Windows driver used to read from and write to
+              Tsunami is a covert Windows driver that can read from and write to
               the memory of any process. It was used to create a
               proof-of-concept Overwatch aimbot and wallhack.
             </p>
