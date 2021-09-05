@@ -2,6 +2,7 @@ export function Resume() {
   return (
     <iframe
       style={{
+        position: "absolute",
         left: 0,
         height: "100vh",
         width: "100vw",
