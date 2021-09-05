@@ -9,6 +9,7 @@ import CitrixImg from "../../images/citrix.png";
 import GsocImg from "../../images/gsoc.png";
 import NyneImg from "../../images/nyne.png";
 import TsunamiImg from "../../images/tsunami.png";
+import { Link } from "react-router-dom";
 
 function navigate(href: string, newTab: boolean) {
   let a = document.createElement("a");
@@ -41,14 +42,7 @@ function App() {
 
       <ul className="text__l text__semibold">
         <li>
-          <a
-            href="https://github.com/Exaphis/resume/releases/download/v1/resume.pdf"
-            type="application/pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Resume
-          </a>
+          <Link to="/resume">Resume</Link>
         </li>
         <li>
           <a href="mailto:kevin@kevinniuwu.com">Email</a>
