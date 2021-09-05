@@ -9,11 +9,14 @@ const handler = async function () {
       // NOT res.status >= 200 && res.status < 300
       return { statusCode: response.status, body: response.statusText };
     }
+
     const data = await response.buffer();
-    const data_str = data.toString();
+    const data_b64 = data.toString("base64");
+
     return {
       statusCode: 200,
-      body: data_str,
+      body: data_b64,
+      isBase64Encoded: true,
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": "filename=Kevin Wu Resume.pdf",
