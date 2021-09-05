@@ -10,13 +10,13 @@ const handler = async function () {
       return { statusCode: response.status, body: response.statusText };
     }
     const data = await response.buffer();
-    const b64 = data.toString("base64");
-    console.log(b64);
+    const data_str = data.toString();
     return {
       statusCode: 200,
-      body: b64,
+      body: data_str,
       headers: {
         "Content-Type": "application/pdf",
+        "Content-Disposition": "filename=Kevin Wu Resume.pdf",
       },
     };
   } catch (error) {
