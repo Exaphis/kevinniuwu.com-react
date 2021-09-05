@@ -9,11 +9,12 @@ const handler = async function () {
       // NOT res.status >= 200 && res.status < 300
       return { statusCode: response.status, body: response.statusText };
     }
-    const data = await response.blob();
-
+    const data = await response.buffer();
+    const b64 = data.toString("base64");
+    console.log(b64);
     return {
       statusCode: 200,
-      body: data,
+      body: b64,
       headers: {
         "Content-Type": "application/pdf",
       },
