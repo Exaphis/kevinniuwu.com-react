@@ -347,5 +347,5 @@ function initializeClock(endtime) {
 }
 
 var start = new Date("19 Aug 2021 12:00:00 EDT");
-var deadline = new Date("16 Oct 2021 10:00:00 EDT");
+var deadline = new Date("9 Oct 2021 12:00:00 PDT");
 initializeClock(deadline);
