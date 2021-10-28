@@ -346,6 +346,6 @@ function initializeClock(endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var start = new Date("19 Aug 2021 12:00:00 EDT");
-var deadline = new Date("9 Oct 2021 12:00:00 PDT");
+var start = new Date("19 Oct 2021 5:00:00 EDT");
+var deadline = new Date("9 Oct 2021 8:00:00 EST");
 initializeClock(deadline);
