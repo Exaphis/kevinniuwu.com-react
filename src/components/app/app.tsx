@@ -1,6 +1,6 @@
 import React from "react";
 import { Section, SectionPreview } from "../section/section";
-import { Card } from "../card/card";
+import { Card, CardImage } from "../card/card";
 import { Tag } from "../tag/tag";
 import "./app.scss";
 import KevinImg from "../../images/kevin.jpg";
@@ -9,16 +9,8 @@ import CitrixImg from "../../images/citrix.png";
 import GsocImg from "../../images/gsoc.png";
 import NyneImg from "../../images/nyne.png";
 import TsunamiImg from "../../images/tsunami.png";
+import TwoSigmaImg from "../../images/two-sigma.svg";
 import { Link } from "react-router-dom";
-
-function navigate(href: string, newTab: boolean) {
-  let a = document.createElement("a");
-  a.href = href;
-  if (newTab) {
-    a.setAttribute("target", "_blank");
-  }
-  a.click();
-}
 
 function App() {
   const schoolSectionRef = React.useRef<HTMLDivElement>(null);
@@ -70,7 +62,7 @@ function App() {
         onClick={() =>
           experienceSectionRef.current?.scrollIntoView({ behavior: "smooth" })
         }
-        content="From May to August of 2021, I was a software engineer intern at Citrix."
+        content="From May to August of 2021, I was a software engineer intern at Citrix. For summer 2022, I'll be interning at Two Sigma."
       />
       <SectionPreview
         name="Projects"
@@ -94,26 +86,21 @@ function App() {
         </p>
         <div className="cards">
           <Card id="purdue-card">
-            <img src={PurdueImg} alt="Purdue logo" />
-            <hr />
-            <div>
-              <p style={{ float: "left" }}>
-                Expected grad: Dec. 2022 <br />
+            <CardImage src={PurdueImg} alt="Purdue logo" />
+            <div id="education-stats">
+              <p>
+                Expected: Dec 2022 <br />
                 B.S. in Computer Science <br />
                 B.S. in Mathematics <br />
               </p>
-              <span style={{ float: "right" }}>GPA: 4.00</span>
+              <span>GPA: 4.00</span>
             </div>
           </Card>
-          <Card
-            id="b01lers-card"
-            onClick={() => navigate("https://b01lers.net", true)}
-          >
-            <img
+          <Card id="b01lers-card" href="https://b01lers.net">
+            <CardImage
               src="https://b01lers.net/img/logo_full.png"
               alt="b01lers logo"
             />
-            <hr />
             <p>
               I compete in capture-the-flag competitions with b01lers, where we
               learn how to hack and solve various cybersecurity challenges.
@@ -131,30 +118,35 @@ function App() {
         innerRef={experienceSectionRef}
       >
         <div className="cards">
-          <Card>
-            <img src={CitrixImg} alt="Citrix logo" />
-            <hr />
+          <Card href="https://twosigma.com">
+            <CardImage src={TwoSigmaImg} alt="Two Sigma logo" />
+            <p>
+              I'm excited to spend the coming summer at Two Sigma as a software
+              engineering intern!
+            </p>
+            <h3 className="card__footer">Jun - Aug 2022</h3>
+          </Card>
+          <Card href="https://www.citrix.com/">
+            <CardImage src={CitrixImg} alt="Citrix logo" />
             <p>
               At Citrix, I worked with the App Layering team to create
               ScanWritableFiles, a Windows Shell extension to show files that
               are only on a user's writable layer.
             </p>
-          </Card>
-          <Card
-            onClick={() =>
-              navigate(
-                "https://summerofcode.withgoogle.com/archive/2020/projects/5453452689276928/",
-                true
-              )
-            }
-          >
-            <img src={GsocImg} alt="Google Summer of Code logo" />
-            <hr />
             <p>
-              During Google Summer of Code, I developed Crossgrader, a package
-              that allows you to switch the architecture of a Debian
+              I also worked on AppRuleCompare, a tool that allows users to view
+              the list of files stored in each app layer.
+            </p>
+            <h3 className="card__footer">May - Aug 2021</h3>
+          </Card>
+          <Card href="https://summerofcode.withgoogle.com/archive/2020/projects/5453452689276928/">
+            <CardImage src={GsocImg} alt="Google Summer of Code logo" />
+            <p>
+              During Google Summer of Code 2020, I developed Crossgrader, a
+              package that allows you to switch the architecture of a Debian
               installation. It is available in the Debian package archive.
             </p>
+            <h3 className="card__footer">May - Aug 2020</h3>
           </Card>
         </div>
       </Section>
@@ -172,8 +164,8 @@ function App() {
           favorites.
         </p>
         <div className="cards">
-          <Card onClick={() => navigate("https://synchronous.codes", true)}>
-            <img
+          <Card href="https://synchronous.codes">
+            <CardImage
               src="https://synchronous.codes/static/media/logo.237c7149.png"
               alt="Synchronous logo"
             />
@@ -183,15 +175,13 @@ function App() {
               somebody else, pop open Synchronous and collaboratively type,
               draw, or share files.
             </p>
-            <Tag>Python</Tag> <Tag>Django</Tag> <Tag>JavaScript</Tag>
-            <Tag>React</Tag>
+            <div className="card__footer">
+              <Tag>Python</Tag> <Tag>Django</Tag> <Tag>JavaScript</Tag>
+              <Tag>React</Tag>
+            </div>
           </Card>
-          <Card
-            onClick={() =>
-              navigate("https://github.com/Exaphis/HackQ-Trivia", true)
-            }
-          >
-            <img
+          <Card href="https://github.com/Exaphis/HackQ-Trivia">
+            <CardImage
               src="https://raw.githubusercontent.com/Exaphis/HackQ-Trivia/master/resources/hackq.png"
               alt="HackQ-Trivia logo"
             />
@@ -201,34 +191,33 @@ function App() {
               questions automatically using web searches and natural language
               processing.
             </p>
-            <Tag>Python</Tag>
+            <div className="card__footer">
+              <Tag>Python</Tag>
+            </div>
           </Card>
-          <Card
-            onClick={() =>
-              navigate("https://apps.apple.com/us/app/nyne/id1424658316", true)
-            }
-          >
-            <img src={NyneImg} alt="Nyne logo" />
+          <Card href="https://apps.apple.com/us/app/nyne/id1424658316">
+            <CardImage src={NyneImg} alt="Nyne logo" />
             <h1>Nyne</h1>
             <p>
               Nyne is a cooperative rhythm game designed for the iPad. It was
               developed on a 4-man team, featuring original songs and unique
               gameplay.
             </p>
-            <Tag>Unity</Tag> <Tag>C#</Tag>
-            <Tag>iOS</Tag>
+            <div className="card__footer">
+              <Tag>Unity</Tag> <Tag>C#</Tag> <Tag>iOS</Tag>
+            </div>
           </Card>
-          <Card
-            onClick={() => navigate("https://github.com/Exaphis/Tsunami", true)}
-          >
-            <img src={TsunamiImg} alt="Tsunami logo" />
+          <Card href="https://github.com/Exaphis/Tsunami">
+            <CardImage src={TsunamiImg} alt="Tsunami logo" />
             <h1>Tsunami</h1>
             <p>
               Tsunami is a covert Windows driver that can read from and write to
               the memory of any process. It was used to create a
               proof-of-concept Overwatch aimbot and wallhack.
             </p>
-            <Tag>C</Tag> <Tag>C++</Tag> <Tag>Windows Driver Kit</Tag>
+            <div className="card__footer">
+              <Tag>C</Tag> <Tag>C++</Tag> <Tag>Windows Driver Kit</Tag>
+            </div>
           </Card>
         </div>
       </Section>

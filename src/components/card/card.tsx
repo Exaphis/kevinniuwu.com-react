@@ -4,15 +4,32 @@ import "./card.scss";
 export function Card(props: {
   id?: string;
   children?: React.ReactNode;
+  href?: string;
   onClick?: () => void;
 }) {
   return (
-    <div
+    <a
       id={props.id}
       onClick={props.onClick}
-      className={"card" + (props.onClick ? " card-clickable" : "")}
+      target="_blank"
+      rel="noopener noreferrer"
+      href={props.href}
+      className={"card" + (props.href ? " card-clickable" : "")}
     >
       {props.children}
-    </div>
+    </a>
+  );
+}
+
+export function CardImage(props: {
+  src: string;
+  alt?: string;
+}) {
+  return (
+    <img
+      src={props.src}
+      alt={props.alt}
+      className={"card-image"}
+    />
   );
 }

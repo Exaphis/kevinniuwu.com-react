@@ -66,6 +66,10 @@ h2 {
   font-size: 2.5rem;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 a {
   color: $text-color;
   &:hover {
@@ -105,8 +109,8 @@ hr {
       margin: 2em;
 
       &__wrapper {
-        width: 250px;
-        height: 250px;
+        max-width: 250px;
+        max-height: 250px;
         border-radius: 50%;
         overflow: hidden;
       }
@@ -137,30 +141,30 @@ hr {
   }
 }
 
+#education-stats {
+  @media screen and (min-width: 512px) {
+    span {
+      float: right;
+    }
+
+    p {
+      float: left;
+    }
+  }
+}
+
 .cards {
   display: grid;
   // https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+  // limit to one column when screen size is small
   @media screen and (max-width: 512px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
   }
   column-gap: 3em;
 
   .card {
-    align-items: center;
-    align-content: center;
-    gap: 1em;
-
-    img {
-      object-fit: contain;
-      max-height: 150px;
-      width: 100%;
-    }
-
-    div {
-      flex-basis: 100%;
-    }
-
     p {
       font-size: 1.8rem;
     }
