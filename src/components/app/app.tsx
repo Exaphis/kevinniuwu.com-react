@@ -21,7 +21,7 @@ function App() {
         </div>
         <div id="portfolio__header__img">
           <div id="portfolio__header__img__wrapper">
-            <picture className={"card-image"}>
+            <picture>
               <source srcSet={images.KevinImg} type="image/webp" />
               <img src={images.KevinFallbackImg} alt={"Kevin Wu"} />
             </picture>
@@ -89,12 +89,12 @@ function App() {
               alt="Purdue logo"
             />
             <div id="education-stats">
-              <p>
+              <p className={"left"}>
                 Expected: Dec 2022 <br />
                 B.S. in Computer Science <br />
                 B.S. in Mathematics <br />
               </p>
-              <span>GPA: 4.00</span>
+              <p className={"right"}>GPA: 4.00</p>
             </div>
           </Card>
           <Card id="b01lers-card" href="https://b01lers.net">

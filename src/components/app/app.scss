@@ -109,8 +109,8 @@ hr {
       margin: 2em;
 
       &__wrapper {
-        max-width: 250px;
-        max-height: 250px;
+        width: 250px;
+        height: 250px;
         border-radius: 50%;
         overflow: hidden;
       }
@@ -143,11 +143,12 @@ hr {
 
 #education-stats {
   @media screen and (min-width: 512px) {
-    span {
+    .right {
       float: right;
+      display: inline;
     }
 
-    p {
+    .left {
       float: left;
     }
   }
