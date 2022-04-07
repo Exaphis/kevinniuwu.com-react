@@ -23,13 +23,16 @@ export function Card(props: {
 
 export function CardImage(props: {
   src: string;
+  fallback?: string;
   alt?: string;
 }) {
+  if (!props.fallback) {
+    return <img src={props.src} alt={props.alt} className={"card-image"} />;
+  }
   return (
-    <img
-      src={props.src}
-      alt={props.alt}
-      className={"card-image"}
-    />
+    <picture>
+      <source srcSet={props.src} type="image/webp" />
+      <img src={props.fallback} alt={props.alt} className={"card-image"} />
+    </picture>
   );
 }

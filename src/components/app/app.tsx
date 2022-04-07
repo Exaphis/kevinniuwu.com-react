@@ -2,14 +2,8 @@ import React from "react";
 import { Section, SectionPreview } from "../section/section";
 import { Card, CardImage } from "../card/card";
 import { Tag } from "../tag/tag";
+import * as images from "../../images";
 import "./app.scss";
-import KevinImg from "../../images/kevin.jpg";
-import PurdueImg from "../../images/purdue.png";
-import CitrixImg from "../../images/citrix.png";
-import GsocImg from "../../images/gsoc.png";
-import NyneImg from "../../images/nyne.png";
-import TsunamiImg from "../../images/tsunami.png";
-import TwoSigmaImg from "../../images/two-sigma.svg";
 import { Link } from "react-router-dom";
 
 function App() {
@@ -27,7 +21,10 @@ function App() {
         </div>
         <div id="portfolio__header__img">
           <div id="portfolio__header__img__wrapper">
-            <img src={KevinImg} alt="Kevin Wu"></img>
+            <picture className={"card-image"}>
+              <source srcSet={images.KevinImg} type="image/webp" />
+              <img src={images.KevinFallbackImg} alt={"Kevin Wu"} />
+            </picture>
           </div>
         </div>
       </div>
@@ -62,7 +59,7 @@ function App() {
         onClick={() =>
           experienceSectionRef.current?.scrollIntoView({ behavior: "smooth" })
         }
-        content="From May to August of 2021, I was a software engineer intern at Citrix. For summer 2022, I'll be interning at Two Sigma."
+        content="From May to August of 2021, I was a software engineer intern at Citrix. For the summer of 2022, I'll be interning at Two Sigma."
       />
       <SectionPreview
         name="Projects"
@@ -81,12 +78,16 @@ function App() {
         innerRef={schoolSectionRef}
       >
         <p>
-          I'm a junior at Purdue University, where I'm a part of some cool
-          clubs.
+          I'm a junior at Purdue University, where I'm a part of some cool clubs
+          and groups.
         </p>
         <div className="cards">
           <Card id="purdue-card">
-            <CardImage src={PurdueImg} alt="Purdue logo" />
+            <CardImage
+              src={images.PurdueImg}
+              fallback={images.PurdueFallbackImg}
+              alt="Purdue logo"
+            />
             <div id="education-stats">
               <p>
                 Expected: Dec 2022 <br />
@@ -98,12 +99,24 @@ function App() {
           </Card>
           <Card id="b01lers-card" href="https://b01lers.net">
             <CardImage
-              src="https://b01lers.net/img/logo_full.png"
+              src={images.B01lersImg}
+              fallback={images.B01lersFallbackImg}
               alt="b01lers logo"
             />
             <p>
               I compete in capture-the-flag competitions with b01lers, where we
               learn how to hack and solve various cybersecurity challenges.
+            </p>
+          </Card>
+          <Card id="rss-card" href="https://www.cs.purdue.edu/homes/pfonseca/">
+            <CardImage
+              src={images.RssImg}
+              fallback={images.RssFallbackImg}
+              alt="RSS research group logo"
+            />
+            <p>
+              I work with Prof. Pedro Fonseca and Sishuai Gong on Linux kernel
+              concurrency bug analysis in the Reliable and Secure Systems Lab.
             </p>
           </Card>
         </div>
@@ -119,15 +132,19 @@ function App() {
       >
         <div className="cards">
           <Card href="https://twosigma.com">
-            <CardImage src={TwoSigmaImg} alt="Two Sigma logo" />
+            <CardImage src={images.TwoSigmaImg} alt="Two Sigma logo" />
             <p>
               I'm excited to spend the coming summer at Two Sigma as a software
               engineering intern!
             </p>
-            <h3 className="card__footer">Jun - Aug 2022</h3>
+            <h3 className="card__footer">May - Aug 2022</h3>
           </Card>
           <Card href="https://www.citrix.com/">
-            <CardImage src={CitrixImg} alt="Citrix logo" />
+            <CardImage
+              src={images.CitrixImg}
+              fallback={images.CitrixFallbackImg}
+              alt="Citrix logo"
+            />
             <p>
               At Citrix, I worked with the App Layering team to create
               ScanWritableFiles, a Windows Shell extension to show files that
@@ -140,7 +157,11 @@ function App() {
             <h3 className="card__footer">May - Aug 2021</h3>
           </Card>
           <Card href="https://summerofcode.withgoogle.com/archive/2020/projects/5453452689276928/">
-            <CardImage src={GsocImg} alt="Google Summer of Code logo" />
+            <CardImage
+              src={images.GsocImg}
+              fallback={images.GsocFallbackImg}
+              alt="Google Summer of Code logo"
+            />
             <p>
               During Google Summer of Code 2020, I developed Crossgrader, a
               package that allows you to switch the architecture of a Debian
@@ -166,7 +187,8 @@ function App() {
         <div className="cards">
           <Card href="https://synchronous.codes">
             <CardImage
-              src="https://synchronous.codes/static/media/logo.237c7149.png"
+              src={images.SynchronousImg}
+              fallback={images.SynchronousFallbackImg}
               alt="Synchronous logo"
             />
             <p>
@@ -182,7 +204,8 @@ function App() {
           </Card>
           <Card href="https://github.com/Exaphis/HackQ-Trivia">
             <CardImage
-              src="https://raw.githubusercontent.com/Exaphis/HackQ-Trivia/master/resources/hackq.png"
+              src={images.HackQImg}
+              fallback={images.HackQFallbackImg}
               alt="HackQ-Trivia logo"
             />
             <p>
@@ -196,7 +219,11 @@ function App() {
             </div>
           </Card>
           <Card href="https://apps.apple.com/us/app/nyne/id1424658316">
-            <CardImage src={NyneImg} alt="Nyne logo" />
+            <CardImage
+              src={images.NyneImg}
+              fallback={images.NyneFallbackImg}
+              alt="Nyne logo"
+            />
             <h1>Nyne</h1>
             <p>
               Nyne is a cooperative rhythm game designed for the iPad. It was
@@ -208,7 +235,11 @@ function App() {
             </div>
           </Card>
           <Card href="https://github.com/Exaphis/Tsunami">
-            <CardImage src={TsunamiImg} alt="Tsunami logo" />
+            <CardImage
+              src={images.TsunamiImg}
+              fallback={images.TsunamiFallbackImg}
+              alt="Tsunami logo"
+            />
             <h1>Tsunami</h1>
             <p>
               Tsunami is a covert Windows driver that can read from and write to
