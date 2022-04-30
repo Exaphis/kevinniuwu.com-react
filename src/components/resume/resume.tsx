@@ -9,7 +9,7 @@ export function Resume() {
         border: "none",
       }}
       title="Kevin Wu Resume"
-      src="https://kevinniuwu.com/.netlify/functions/resume-fetch"
+      src="https://exaphis.github.io/resume/Kevin%20Wu%20Resume.pdf"
     />
   );
 }
