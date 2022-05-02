@@ -1,12 +1,10 @@
+@use '../../styles/colors';
 @import url('https://rsms.me/inter/inter.css');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
-$base-color: #08122B;
-$accent-color: #D9A629;
-$text-color: #CCCCCC;
 
 html {
-  background-color: $base-color;
-  color: $text-color;
+  background-color: colors.$base-color;
+  color: colors.$text-color;
 
   padding: 0 5em;
   @media screen and (max-width: 512px) {
@@ -26,7 +24,7 @@ html {
 
 .text {
   &__accent {
-    color: $accent-color;
+    color: colors.$accent-color;
   }
 
   &__semibold {
@@ -71,9 +69,9 @@ h3 {
 }
 
 a {
-  color: $text-color;
+  color: colors.$text-color;
   &:hover {
-    color: $accent-color;
+    color: colors.$accent-color;
   }
 
   transition: color 0.2s;

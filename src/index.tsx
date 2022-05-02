@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import App from "./components/App";
 import { Resume } from "./components/Resume";
+import { NotFound } from "./components/NotFound";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/resume" component={Resume} />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   </React.StrictMode>,
